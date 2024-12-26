@@ -1,0 +1,8 @@
+let textos_EN = {
+
+	
+
+
+
+
+}

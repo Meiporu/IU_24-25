@@ -256,7 +256,7 @@ class persona extends EntidadAbstracta{
 	*/
 
 	comprobar_dni(){
-
+		return true;
 	}
 
 	comprobar_nombre_persona(){
@@ -555,8 +555,9 @@ class persona extends EntidadAbstracta{
 				let day = fechaf[0];
 				let month = fechaf[1];
 				let year = fechaf[2];
-				let date = new Date(year,month,'0');
-				if((day-0)>(date.getDate()-0)){
+				//let date = month+'/'+day+'/'+year;
+				let diasmes = new Date(year, month,0).getDate();
+				if (day > diasmes){
 					return false;
 				}
 				return true;
@@ -591,12 +592,20 @@ class persona extends EntidadAbstracta{
         	let campos = document.forms['IU_form'].elements;
         	//recorrer todos los campos
         	for (let i=0;i<campos.length;i++) {
-			if (document.getElementById(campos[i].id).type == 'file'){
+				switch (document.getElementById(campos[i].id).type){
+					case 'file':
+						break;
+					case 'textarea':
+						document.getElementById(campos[i].id).innerHTML = parametros[campos[i].id];
+					default:
+						document.getElementById(campos[i].id).value = parametros[campos[i].id];
+				}
+			/*if (document.getElementById(campos[i].id).type == 'file'){
                 
 			}
 			else{
                 		document.getElementById(campos[i].id).value = parametros[campos[i].id];
-			}
+			}*/
         	}
 	}
 

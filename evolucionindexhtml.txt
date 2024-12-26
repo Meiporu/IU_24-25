@@ -1,0 +1,55 @@
+commit 1577e28f80b1c93c716a9fdac3deb4a17a0bb5c4
+Author: jrodeiro <jrodeiro@gmail.com>
+Date:   Mon Nov 11 18:57:56 2024 +0100
+
+    actualizado directorio ET2
+
+diff --git a/ET2/index.html b/ET2/index.html
+--- a/ET2/index.html
++++ b/ET2/index.html
+@@ -46,2 +48,1 @@
+-		    <li class="opcionmenu"><span class="text_datos_personales" onclick="validar = new persona();">Datos Personales</span></li>
+-		    <li class="opcionmenu"><span class="text_funcionalidad" onclick="validar = new funcionalidad();">Funcionalidad</span></li>
++		    <li class="opcionmenu"><span class="text_analysis_prep" onclick="validar = new analysis_preparation();"></span></li>
+
+commit 75b561711a728619f12989fbe98d2ad55c56270c
+Author: jrodeiro <jrodeiro@gmail.com>
+Date:   Mon Oct 28 10:26:13 2024 +0100
+
+    actualizado a ultima version la carpeta ET2
+
+diff --git a/ET2/index.html b/ET2/index.html
+--- a/ET2/index.html
++++ b/ET2/index.html
+@@ -48,2 +46,2 @@
+-		    <li class="opcionmenu"><span onclick="validar = new project();">Project</span></li>
+-		    <li class="opcionmenu"><span onclick="validar = new analysis_preparation();">Analysis_preparation</span></li>
++		    <li class="opcionmenu"><span class="text_datos_personales" onclick="validar = new persona();">Datos Personales</span></li>
++		    <li class="opcionmenu"><span class="text_funcionalidad" onclick="validar = new funcionalidad();">Funcionalidad</span></li>
+
+commit cf7dde4ee54676810d16d53962bb69709d2f8e04
+Author: jrodeiro <jrodeiro@gmail.com>
+Date:   Tue Oct 22 19:59:51 2024 +0200
+
+    actualización a preparacion de contenidos para semana 6
+
+diff --git a/ET2/index.html b/ET2/index.html
+--- a/ET2/index.html
++++ b/ET2/index.html
+@@ -47,2 +45,2 @@
+ 		    <li class="opcionmenu"><span onclick="validar = new project();">Project</span></li>
+-		    <li class="opcionmenu"><span onclick="validar = new persona();">Datos Personales</span></li>
++		    <li class="opcionmenu"><span onclick="validar = new analysis_preparation();">Analysis_preparation</span></li>
+
+commit b5401a1504fbff816d1570f6b18b968469ab1046
+Author: jrodeiro <jrodeiro@gmail.com>
+Date:   Tue Oct 22 19:21:17 2024 +0200
+
+    ejemplo de ET2. Solo podeis desarrollar según la definicion de la ET2 en js_app los ficheros que se os solicitan. El resto de ficheros no se modifican. ESTO NO ES UNA SOLUCIÓN A LA ENTREGA. SOLO ES UN EJEMPLO DE COMO IMPLEMENTAR LOS FICHEROS SOLICITADOS EN LA ENTREGA Y COMO CONECTARLOS CON EL RESTO DEL CODIGO
+
+diff --git a/ET2/index.html b/ET2/index.html
+--- a/ET2/index.html
++++ b/ET2/index.html
+@@ -46,0 +47,2 @@
++		    <li class="opcionmenu"><span onclick="validar = new project();">Project</span></li>
++		    <li class="opcionmenu"><span onclick="validar = new persona();">Datos Personales</span></li>
