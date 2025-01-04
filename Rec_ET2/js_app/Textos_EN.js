@@ -1,8 +1,0 @@
-let textos_EN = {
-
-	
-
-
-
-
-}
