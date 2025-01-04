@@ -1,0 +1,26 @@
+ CREATE TABLE `libro` (
+  `CodigoL` int(11) NOT NULL                                Autoincremental     11 digitos maximos
+  `AutoresL` varchar(200) NOT NULL DEFAULT ''               Tamaño minimo 15    Caracteres alfabeticos, con acentos, espacios y/o con ñ, ',', '-' y '.'
+  `TituloL` varchar(100) NOT NULL DEFAULT ''                Tamaño minimo 1     Caracteres alfanúmericos, con acentos, espacios y/o con ñ, ',', '-' y '.'
+  `ISBN` varchar(13) NOT NULL DEFAULT ''                    Tamaño exacto 13    Solo digitos
+  `PagIniL` varchar(4) NOT NULL                             Tamaño minimo 1     Solo digitos
+  `PagFinL` varchar(4) NOT NULL                             Tamaño minimo 1     Solo digitos, debe ser posterior a PagIniL
+  `VolumenL` varchar(4) NOT NULL                            tamaño minimo 1     Solo digitos
+  `EditorialL` varchar(100) NOT NULL                        Tamaño minimo 10    Caracteres alfabeticos y digitos con -
+  `FechaPublicacionL` date NOT NULL DEFAULT '0000-00-00'    Formato YYYY-MM-DD  Valido
+  `EditorL` varchar(100) NOT NULL                           Tamaño minimo 10    Caracteres alfabeticos y digitos con -
+  `PaisEdicionL` varchar(20) NOT NULL DEFAULT ''            Tamaño minimo 4     Caracteres alfabeticos con -
+  `archivopdfL` varchar(20) NOT NULL DEFAULT ''             Tamaño minimo 5     Caracteres alfanumericos con '_' y '.'; formato PDF y tamaño maximo 500000
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+*/
+
+/*
+Alfabeticos:                                                  [A-Za-z]
+Alfabeticos con acentos:                                      [A-Za-záéíóúÁÉÍÓÚ]
+Alfabeticos con acentos, espacios y signos de puntiacion:     [A-Za-z áéíóúñÁÉÍÓÚÑ¿¡ !"#$%&'()*+,./:;<=>?@\[\\\]^_\`{|}~-]*$
+Digitos:                                                      [0-9]
+Alfanumericos:                                                
+Formato Fecha:                                                [0-9]{4}/[0-9]{2}/[0-9]{2}
+
+
+*/
