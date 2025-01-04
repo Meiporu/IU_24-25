@@ -1,7 +1,7 @@
 /* ####################################################################################################################################################### 
-																Entidad Project
+																Entidad Libro
 	####################################################################################################################################################### */
-class project extends EntidadAbstracta {
+class libro extends EntidadAbstracta {
 	constructor() {
 		super();
 		this.entidad = 'libro';
@@ -263,7 +263,7 @@ class project extends EntidadAbstracta {
 		return true;
 	}
 
-	//`AutoresL` varchar(200) NOT NULL ,alfabéticos y espacios, min 15 max 200
+	//`AutoresL` varchar(200) NOT NULL min 15 max 200, caracteres alfabeticos, con acentos, espacios y/o con ñ, ',', '-' y '.'
 	comprobar_AutoresL() {
 		if (!(this.validaciones.min_size('AutoresL', 15))) {
 			this.mostrar_error_campo('AutoresL', 'AutoresL_size_minSize_error');
@@ -273,7 +273,7 @@ class project extends EntidadAbstracta {
 			this.mostrar_error_campo('AutoresL', 'AutoresL_size_maxSize_error');
 			return 'AutoresL_size_maxSize_error';
 		}
-		if (!(this.validaciones.format('AutoresL', '^[A-Za-z ]*$'))) {
+		if (!(this.validaciones.format('AutoresL', '^[A-Za-z áéíóúñÁÉÍÓÚÑ,.-]*$'))) {
 			this.mostrar_error_campo('AutoresL', 'AutoresL_format_error');
 			return 'AutoresL_format_error';
 		}
@@ -286,7 +286,7 @@ class project extends EntidadAbstracta {
 			this.mostrar_error_campo('AutoresL', 'AutoresL_size_maxSize_error');
 			return 'AutoresL_size_maxSize_error';
 		}
-		if (!(this.validaciones.format('AutoresL', '^[A-Za-z ]*$'))) {
+		if (!(this.validaciones.format('AutoresL', '^[A-Za-z áéíóúñÁÉÍÓÚÑ,.-]*$'))) {
 			this.mostrar_error_campo('AutoresL', 'AutoresL_format_error');
 			return 'AutoresL_format_error';
 		}
@@ -294,7 +294,7 @@ class project extends EntidadAbstracta {
 		return true;
 	}
 
-	//`TituloL` varchar(200) NOT NULL ,alfabéticos y espacios, min 1 max 100
+	//`TituloL` varchar(100) NOT NULL min 1 max 100, caracteres alfanúmericos, con acentos, espacios y/o con ñ, ',', '-' y '.'
 	comprobar_TituloL() {
 		if (!(this.validaciones.min_size('TituloL', 1))) {
 			this.mostrar_error_campo('TituloL', 'TituloL_size_minSize_error');
@@ -304,7 +304,7 @@ class project extends EntidadAbstracta {
 			this.mostrar_error_campo('TituloL', 'TituloL_size_maxSize_error');
 			return 'TituloL_size_maxSize_error';
 		}
-		if (!(this.validaciones.format('TituloL', '^[A-Za-z ]*$'))) {
+		if (!(this.validaciones.format('TituloL', '^[A-Za-z áéíóúñÁÉÍÓÚÑ,.-0123456789]*$'))) {
 			this.mostrar_error_campo('TituloL', 'TituloL_format_error');
 			return 'TituloL_format_error';
 		}
@@ -317,7 +317,7 @@ class project extends EntidadAbstracta {
 			this.mostrar_error_campo('TituloL', 'TituloL_size_maxSize_error');
 			return 'TituloL_size_maxSize_error';
 		}
-		if (!(this.validaciones.format('TituloL', '^[A-Za-z ]*$'))) {
+		if (!(this.validaciones.format('TituloL', '^[A-Za-z áéíóúñÁÉÍÓÚÑ,.-0123456789]*$'))) {
 			this.mostrar_error_campo('TituloL', 'TituloL_format_error');
 			return 'TituloL_format_error';
 		}
@@ -325,7 +325,7 @@ class project extends EntidadAbstracta {
 		return true;
 	}
 
-	//`ISBN` varchar(13) NOT NULL , digitos y guiones, tamaño = 13, formato 
+	//`ISBN` varchar(13) NOT NULL tamaño = 13, solo digitos
 	comprobar_ISBN() {
 		if (!(this.validaciones.min_size('ISBN', 13))) {
 			this.mostrar_error_campo('ISBN', 'ISBN_size_minSize_error');
@@ -335,7 +335,7 @@ class project extends EntidadAbstracta {
 			this.mostrar_error_campo('ISBN', 'ISBN_size_maxSize_error');
 			return 'ISBN_size_maxSize_error';
 		}
-		if (!(this.validaciones.format('ISBN', '^[A-Za-z ]*$'))) {
+		if (!(this.validaciones.format('ISBN', '^[0-9]*$'))) {
 			this.mostrar_error_campo('ISBN', 'ISBN_format_error');
 			return 'ISBN_format_error';
 		}
@@ -348,7 +348,7 @@ class project extends EntidadAbstracta {
 			this.mostrar_error_campo('ISBN', 'ISBN_size_maxSize_error');
 			return 'ISBN_size_maxSize_error';
 		}
-		if (!(this.validaciones.format('ISBN', '^[A-Za-z ]*$'))) {
+		if (!(this.validaciones.format('ISBN', '^[0-9]*$'))) {
 			this.mostrar_error_campo('ISBN', 'ISBN_format_error');
 			return 'ISBN_format_error';
 		}
@@ -356,7 +356,7 @@ class project extends EntidadAbstracta {
 		return true;
 	}
 
-	//`PagIniL` varchar(4) NOT NULL , digitos tamaño > 1 
+	//`PagIniL` varchar(4) NOT NULL min 1 max 4, solo digitos
 	comprobar_PagIniL() {
 		if (!(this.validaciones.min_size('PagIniL', 1))) {
 			this.mostrar_error_campo('PagIniL', 'PagIniL_size_minSize_error');
@@ -366,7 +366,7 @@ class project extends EntidadAbstracta {
 			this.mostrar_error_campo('PagIniL', 'PagIniL_size_maxSize_error');
 			return 'PagIniL_size_maxSize_error';
 		}
-		if (!(this.validaciones.format('PagIniL', '^[A-Za-z ]*$'))) {
+		if (!(this.validaciones.format('PagIniL', '^[0-9]*$'))) {
 			this.mostrar_error_campo('PagIniL', 'PagIniL_format_error');
 			return 'PagIniL_format_error';
 		}
@@ -379,7 +379,7 @@ class project extends EntidadAbstracta {
 			this.mostrar_error_campo('PagIniL', 'PagIniL_size_maxSize_error');
 			return 'PagIniL_size_maxSize_error';
 		}
-		if (!(this.validaciones.format('PagIniL', '^[A-Za-z ]*$'))) {
+		if (!(this.validaciones.format('PagIniL', '^[0-9]*$'))) {
 			this.mostrar_error_campo('PagIniL', 'PagIniL_format_error');
 			return 'PagIniL_format_error';
 		}
@@ -387,7 +387,7 @@ class project extends EntidadAbstracta {
 		return true;
 	}
 
-	//`PagFinL` varchar(4) NOT NULL , digitos tamaño > 1 
+	//`PagFinL` varchar(4) NOT NULL min 1 max 4, solo digitos
 	comprobar_PagFinL() {
 		if (!(this.validaciones.min_size('PagFinL', 1))) {
 			this.mostrar_error_campo('PagFinL', 'PagFinL_size_minSize_error');
@@ -397,7 +397,7 @@ class project extends EntidadAbstracta {
 			this.mostrar_error_campo('PagFinL', 'PagFinL_size_maxSize_error');
 			return 'PagFinL_size_maxSize_error';
 		}
-		if (!(this.validaciones.format('PagFinL', '^[A-Za-z ]*$'))) {
+		if (!(this.validaciones.format('PagFinL', '^[0-9]*$'))) {
 			this.mostrar_error_campo('PagFinL', 'PagFinL_format_error');
 			return 'PagFinL_format_error';
 		}
@@ -410,7 +410,7 @@ class project extends EntidadAbstracta {
 			this.mostrar_error_campo('PagFinL', 'PagFinL_size_maxSize_error');
 			return 'PagFinL_size_maxSize_error';
 		}
-		if (!(this.validaciones.format('PagFinL', '^[A-Za-z ]*$'))) {
+		if (!(this.validaciones.format('PagFinL', '^[0-9]*$'))) {
 			this.mostrar_error_campo('PagFinL', 'PagFinL_format_error');
 			return 'PagFinL_format_error';
 		}
@@ -418,17 +418,17 @@ class project extends EntidadAbstracta {
 		return true;
 	}
 
-	//`VolumenL` varchar(X) NOT NULL ,  
+	//`VolumenL` varchar(4) NOT NULL min 1 max 4, solo digitos  
 	comprobar_VolumenL() {
-		if (!(this.validaciones.min_size('VolumenL', 13))) {
+		if (!(this.validaciones.min_size('VolumenL', 1))) {
 			this.mostrar_error_campo('VolumenL', 'VolumenL_size_minSize_error');
 			return 'VolumenL_size_minSize_error';
 		}
-		if (!(this.validaciones.max_size('VolumenL', 13))) {
+		if (!(this.validaciones.max_size('VolumenL', 4))) {
 			this.mostrar_error_campo('VolumenL', 'VolumenL_size_maxSize_error');
 			return 'VolumenL_size_maxSize_error';
 		}
-		if (!(this.validaciones.format('VolumenL', '^[A-Za-z ]*$'))) {
+		if (!(this.validaciones.format('VolumenL', '^[0-9]*$'))) {
 			this.mostrar_error_campo('VolumenL', 'VolumenL_format_error');
 			return 'VolumenL_format_error';
 		}
@@ -437,11 +437,11 @@ class project extends EntidadAbstracta {
 	}
 
 	comprobar_VolumenL_SEARCH() {
-		if (!(this.validaciones.max_size('VolumenL', 13))) {
+		if (!(this.validaciones.max_size('VolumenL', 4))) {
 			this.mostrar_error_campo('VolumenL', 'VolumenL_size_maxSize_error');
 			return 'VolumenL_size_maxSize_error';
 		}
-		if (!(this.validaciones.format('VolumenL', '^[A-Za-z ]*$'))) {
+		if (!(this.validaciones.format('VolumenL', '^[0-9]*$'))) {
 			this.mostrar_error_campo('VolumenL', 'VolumenL_format_error');
 			return 'VolumenL_format_error';
 		}
@@ -449,17 +449,17 @@ class project extends EntidadAbstracta {
 		return true;
 	}
 	
-	//`EditorialL` varchar(100) NOT NULL , caracteres alfanumericos con - tamaño minimo 10  
+	//`EditorialL` varchar(100) NOT NULL min 10 max 100, caracteres alfabeticos y digitos con espacios y '-'
 	comprobar_EditorialL() {
-		if (!(this.validaciones.min_size('EditorialL', 13))) {
+		if (!(this.validaciones.min_size('EditorialL', 10))) {
 			this.mostrar_error_campo('EditorialL', 'EditorialL_size_minSize_error');
 			return 'EditorialL_size_minSize_error';
 		}
-		if (!(this.validaciones.max_size('EditorialL', 13))) {
+		if (!(this.validaciones.max_size('EditorialL', 100))) {
 			this.mostrar_error_campo('EditorialL', 'EditorialL_size_maxSize_error');
 			return 'EditorialL_size_maxSize_error';
 		}
-		if (!(this.validaciones.format('EditorialL', '^[A-Za-z ]*$'))) {
+		if (!(this.validaciones.format('EditorialL', '^[A-Za-z -]*$'))) {
 			this.mostrar_error_campo('EditorialL', 'EditorialL_format_error');
 			return 'EditorialL_format_error';
 		}
@@ -468,11 +468,11 @@ class project extends EntidadAbstracta {
 	}
 
 	comprobar_EditorialL_SEARCH() {
-		if (!(this.validaciones.max_size('EditorialL', 13))) {
+		if (!(this.validaciones.max_size('EditorialL', 100))) {
 			this.mostrar_error_campo('EditorialL', 'EditorialL_size_maxSize_error');
 			return 'EditorialL_size_maxSize_error';
 		}
-		if (!(this.validaciones.format('EditorialL', '^[A-Za-z ]*$'))) {
+		if (!(this.validaciones.format('EditorialL', '^[A-Za-z -]*$'))) {
 			this.mostrar_error_campo('EditorialL', 'EditorialL_format_error');
 			return 'EditorialL_format_error';
 		}
@@ -480,9 +480,9 @@ class project extends EntidadAbstracta {
 		return true;
 	}
 	
-	//  `FechaPublicacionL` date NOT NULL,fecha válida con formato aaaa/mm/dd 
+	//  `FechaPublicacionL` date NOT NULL, fecha válida con formato aaaa/mm/dd 
 	comprobar_FechaPublicacionL() {
-		if (!(this.validaciones.format('FechaPublicacionL', '^[0-9]{2}/[0-9]{2}/[0-9]{4}$'))) {
+		if (!(this.validaciones.format('FechaPublicacionL', '^[0-9]{4}/[0-9]{2}/[0-9]{2}$'))) {
 			this.mostrar_error_campo('FechaPublicacionL', 'FechaPublicacionL_inavlidDate_format_error');
 			return 'FechaPublicacionL_inavlidDate_format_error';
 		}
@@ -507,7 +507,7 @@ class project extends EntidadAbstracta {
 		return true;
 	}
 
-//`EditorL` varchar(100) NOT NULL ,  Caracteres alfanumericos con -
+//`EditorL` varchar(100) NOT NULL min  10 max 100, caracteres alfanúmericos, con acentos, espacios y/o con ñ, ',', '-' y '.'
 comprobar_EditorL() {
 	if (!(this.validaciones.min_size('EditorL', 10))) {
 		this.mostrar_error_campo('EditorL', 'EditorL_size_minSize_error');
@@ -517,7 +517,7 @@ comprobar_EditorL() {
 		this.mostrar_error_campo('EditorL', 'EditorL_size_maxSize_error');
 		return 'EditorL_size_maxSize_error';
 	}
-	if (!(this.validaciones.format('EditorL', '^[A-Za-z ]*$'))) {
+	if (!(this.validaciones.format('EditorL', '^[A-Za-z áéíóúñÁÉÍÓÚÑ,.-0123456789]*$'))) {
 		this.mostrar_error_campo('EditorL', 'EditorL_format_error');
 		return 'EditorL_format_error';
 	}
@@ -530,7 +530,7 @@ comprobar_EditorL_SEARCH() {
 		this.mostrar_error_campo('EditorL', 'EditorL_size_maxSize_error');
 		return 'EditorL_size_maxSize_error';
 	}
-	if (!(this.validaciones.format('EditorL', '^[A-Za-z ]*$'))) {
+	if (!(this.validaciones.format('EditorL', '^[A-Za-z áéíóúñÁÉÍÓÚÑ,.-0123456789]*$'))) {
 		this.mostrar_error_campo('EditorL', 'EditorL_format_error');
 		return 'EditorL_format_error';
 	}
@@ -538,7 +538,7 @@ comprobar_EditorL_SEARCH() {
 	return true;
 }
 
-	//`PaisEdicionL` varchar(20) NOT NULL, alfabéticos con - min 4 
+	//`PaisEdicionL` varchar(20) NOT NULL min 4 max 20, alfabeticos con espacios 
 	comprobar_PaisEdicionL() {
 		if (!(this.validaciones.min_size('PaisEdicionL', 4))) {
 			this.mostrar_error_campo('PaisEdicionL', 'PaisEdicionL_size_minSize_error');
@@ -548,7 +548,7 @@ comprobar_EditorL_SEARCH() {
 			this.mostrar_error_campo('PaisEdicionL', 'PaisEdicionL_size_maxSize_error');
 			return 'PaisEdicionL_size_maxSize_error';
 		}
-		if (!(this.validaciones.format('PaisEdicionL', `^[A-Za-z áéíóúñÁÉÍÓÚÑ¿¡ !"#$%&'()*+,./:;<=>?@\[\\\]^_\`{|}~-]*$`))) {
+		if (!(this.validaciones.format('PaisEdicionL', `^[A-Za-z ]*$`))) {
 			this.mostrar_error_campo('PaisEdicionL', 'PaisEdicionL_format_error');
 			return 'PaisEdicionL_format_error';
 		}
@@ -561,7 +561,7 @@ comprobar_EditorL_SEARCH() {
 			this.mostrar_error_campo('PaisEdicionL', 'PaisEdicionL_size_maxSize_error');
 			return 'PaisEdicionL_size_maxSize_error';
 		}
-		if (!(this.validaciones.format('PaisEdicionL', `^[A-Za-z áéíóúñÁÉÍÓÚÑ¿¡ !"#$%&'()*+,./:;<=>?@\[\\\]^_\`{|}~-]*$`))) {
+		if (!(this.validaciones.format('PaisEdicionL', `^[A-Za-z ]*$`))) {
 			this.mostrar_error_campo('PaisEdicionL', 'PaisEdicionL_format_error');
 			return 'PaisEdicionL_format_error';
 		}
@@ -569,7 +569,7 @@ comprobar_EditorL_SEARCH() {
 		return true;
 	}
 
-	//`archivopdfL` varchar(20) NOT NULL alfanumericos con punto sin espacios min 5 max 20. Solo pdf
+	//`archivopdfL` varchar(20) NOT NULL mi 5 max 20, caracteres alfanumericos con '_' y '.'; formato PDF y tamaño maximo 500000
 	comprobar_nuevo_archivopdfL() {
 		if (document.getElementById('nuevo_archivopdfL').files.length == 0) {
 			if (this.accion == 'EDIT') {
@@ -583,11 +583,11 @@ comprobar_EditorL_SEARCH() {
 			}
 		}
 		let mifichero = document.getElementById('nuevo_archivopdfL').files[0];
-		if (!(this.validaciones.max_size_file(mifichero, 2000000))) {
+		if (!(this.validaciones.max_size_file(mifichero, 500000))) {
 			this.mostrar_error_campo('nuevo_archivopdfL', 'archivopdfL_size_maxSize_error');
 			return 'archivopdfL_size_maxSize_error';
 		}
-		if (!(this.validaciones.type_file(mifichero, Array("application/pdf", "application/msword", "application/vnd.openxmlformats-officedocument.wordprocessingml.document")))) { //ultimo tipo MIME es .docx
+		if (!(this.validaciones.type_file(mifichero, Array("application/pdf")))) { 
 			this.mostrar_error_campo('nuevo_archivopdfL', 'archivopdfL_type_error');
 			return 'archivopdfL_type_error';
 		}
@@ -600,7 +600,7 @@ comprobar_EditorL_SEARCH() {
 			return 'archivopdfL_name_size_maxSize_error';
 		}
 
-		if (!(this.validaciones.format_name_file(mifichero, '^[A-Za-z.]*$'))) {
+		if (!(this.validaciones.format_name_file(mifichero, '^[A-Za-z._0123456789]*$'))) {
 			this.mostrar_error_campo('nuevo_archivopdfL', 'archivopdfL_name_format_error');
 			return 'archivopdfL_name_format_error';
 		}
@@ -609,11 +609,11 @@ comprobar_EditorL_SEARCH() {
 	}
 
 	comprobar_archivopdfL_SEARCH() {
-		if (!(this.validaciones.max_size('archivopdfL', 100))) {
+		if (!(this.validaciones.max_size('archivopdfL', 20))) {
 			this.mostrar_error_campo('archivopdfL', 'archivopdfL_name_size_maxSize_error');
 			return 'archivopdfL_name_size_maxSize_error';
 		}
-		if (!(this.validaciones.format('archivopdfL', `^[A-Za-z.]*$`))) {
+		if (!(this.validaciones.format('archivopdfL', `^[A-Za-z._0123456789]*$`))) {
 			this.mostrar_error_campo('archivopdfL', 'archivopdfL_name_format_error');
 			return 'archivopdfL_name_format_error';
 		}
@@ -628,7 +628,7 @@ comprobar_EditorL_SEARCH() {
 	   ####################################################################################################################################################### */
 	comprobar_submit() {
 		let result = (
-			(this.comprobar_CodigoL()) & //redundante al ser autoincremental, incluido por si fuese necesario a futuro
+			(this.comprobar_CodigoL()) & 
 			(this.comprobar_AutoresL()) &
 			(this.comprobar_TituloL()) &
 			(this.comprobar_ISBN()) &
@@ -646,7 +646,7 @@ comprobar_EditorL_SEARCH() {
 
 	comprobar_submit_SEARCH() {
 		let result = (
-			(this.comprobar_CodigoL_SEARCH()) & //redundante al ser autoincremental, incluido por si fuese necesario a futuro
+			(this.comprobar_CodigoL_SEARCH()) & 
 			(this.comprobar_AutoresL_SEARCH()) &
 			(this.comprobar_TituloL_SEARCH()) &
 			(this.comprobar_ISBN_SEARCH()) &
@@ -685,7 +685,7 @@ comprobar_EditorL_SEARCH() {
 		if (PagIniLuto == 'FechaPublicacionL') {
 
 			let fech = valorPagIniLuto.split('-');
-			let fechaformateada = fech[0] + '/' + fech[1] + '/' + fech[2];
+			let fechaformateada = fech[0] + '-' + fech[1] + '-' + fech[2];
 			return fechaformateada;
 
 		}
@@ -756,7 +756,7 @@ comprobar_EditorL_SEARCH() {
 	}
 
 	fechaValida(fecha) {
-		let fechaf = fecha.split("/");
+		let fechaf = fecha.split("-");
 		let year = parseInt(fechaf[0]);
 		if (year == 0) return false; //En el calendario gregoriano no hay año 0
 		let month = fechaf[1];
