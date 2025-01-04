@@ -273,7 +273,7 @@ class libro extends EntidadAbstracta {
 			this.mostrar_error_campo('AutoresL', 'AutoresL_size_maxSize_error');
 			return 'AutoresL_size_maxSize_error';
 		}
-		if (!(this.validaciones.format('AutoresL', '^[A-Za-z áéíóúñÁÉÍÓÚÑ,.-]*$'))) {
+		if (!(this.validaciones.format('AutoresL', '^[A-Za-z áéíóúÁÉÍÓÚ,.-]*$'))) {
 			this.mostrar_error_campo('AutoresL', 'AutoresL_format_error');
 			return 'AutoresL_format_error';
 		}
@@ -300,7 +300,7 @@ class libro extends EntidadAbstracta {
 			this.mostrar_error_campo('TituloL', 'TituloL_size_minSize_error');
 			return 'TituloL_size_minSize_error';
 		}
-		if (!(this.validaciones.max_size('TituloL', 100))) {
+		if (!(this.validaciones.max_size('TituloL', 200))) {
 			this.mostrar_error_campo('TituloL', 'TituloL_size_maxSize_error');
 			return 'TituloL_size_maxSize_error';
 		}
@@ -313,11 +313,11 @@ class libro extends EntidadAbstracta {
 	}
 
 	comprobar_TituloL_SEARCH() {
-		if (!(this.validaciones.max_size('TituloL', 100))) {
+		if (!(this.validaciones.max_size('TituloL', 200))) {
 			this.mostrar_error_campo('TituloL', 'TituloL_size_maxSize_error');
 			return 'TituloL_size_maxSize_error';
 		}
-		if (!(this.validaciones.format('TituloL', '^[A-Za-z áéíóúñÁÉÍÓÚÑ,.-0123456789]*$'))) {
+		if (!(this.validaciones.format('TituloL', '^[A-Za-z áéíóúÁÉÍÓÚ,.-]*$'))) {
 			this.mostrar_error_campo('TituloL', 'TituloL_format_error');
 			return 'TituloL_format_error';
 		}
@@ -389,32 +389,32 @@ class libro extends EntidadAbstracta {
 
 	//`PagFinL` varchar(4) NOT NULL min 1 max 4, solo digitos
 	comprobar_PagFinL() {
-		if (!(this.validaciones.min_size('PagFinL', 1))) {
-			this.mostrar_error_campo('PagFinL', 'PagFinL_size_minSize_error');
-			return 'PagFinL_size_minSize_error';
+		if (!(this.validaciones.min_size('PagIniL', 1))) {
+			this.mostrar_error_campo('PagIniL', 'PagIniL_size_minSize_error');
+			return 'PagIniL_size_minSize_error';
 		}
-		if (!(this.validaciones.max_size('PagFinL', 4))) {
-			this.mostrar_error_campo('PagFinL', 'PagFinL_size_maxSize_error');
+		if (!(this.validaciones.max_size('PagIniL', 4))) {
+			this.mostrar_error_campo('PagIniL', 'PagIniL_size_maxSize_error');
 			return 'PagFinL_size_maxSize_error';
 		}
 		if (!(this.validaciones.format('PagFinL', '^[0-9]*$'))) {
-			this.mostrar_error_campo('PagFinL', 'PagFinL_format_error');
-			return 'PagFinL_format_error';
+			this.mostrar_error_campo('PagIniL', 'PagIniL_format_error');
+			return 'PagIniL_format_error';
 		}
-		this.mostrar_exito_campo('PagFinL');
+		this.mostrar_exito_campo('PagIniL');
 		return true;
 	}
 
 	comprobar_PagFinL_SEARCH() {
-		if (!(this.validaciones.max_size('PagFinL', 4))) {
-			this.mostrar_error_campo('PagFinL', 'PagFinL_size_maxSize_error');
-			return 'PagFinL_size_maxSize_error';
+		if (!(this.validaciones.max_size('PagIniL', 4))) {
+			this.mostrar_error_campo('PagIniL', 'PagIniL_size_maxSize_error');
+			return 'PagIniL_size_maxSize_error';
 		}
-		if (!(this.validaciones.format('PagFinL', '^[0-9]*$'))) {
-			this.mostrar_error_campo('PagFinL', 'PagFinL_format_error');
-			return 'PagFinL_format_error';
+		if (!(this.validaciones.format('PagIniL', '^[0-9]*$'))) {
+			this.mostrar_error_campo('PagIniL', 'PagIniL_format_error');
+			return 'PagIniL_format_error';
 		}
-		this.mostrar_exito_campo('PagFinL');
+		this.mostrar_exito_campo('PagIniL');
 		return true;
 	}
 
