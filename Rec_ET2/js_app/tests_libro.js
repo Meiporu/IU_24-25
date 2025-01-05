@@ -683,7 +683,7 @@ let pruebas_libro = Array(
                                                             Pruebas File
    ####################################################################################################################################################### */
 
-let pruebas_archivopdfL = Array(
+let pruebas_file_libro = Array(
     //archivopdfL: 			alfabéticos sin acentos ni ñ ni espacios min 7 max 100. Solo pdf, doc o docx y tamaño de fichero menor de 2.000.000 bytes
     //Test 100 y 101; Fichero existe
     //ADD
